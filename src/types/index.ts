@@ -10,6 +10,16 @@ export type Country = {
   continent: string
 }
 
+export type Weather = {
+  name: string
+  main: {
+    temp: number
+    temp_max: number
+    temp_min: number
+  }
+
+}
+
 export type Country1 = {
   id: number
   name: string

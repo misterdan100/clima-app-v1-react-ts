@@ -4,13 +4,18 @@ import styles from './Form.module.css'
 import type { SearchType } from "../../types";
 import Alert from "../Alert/Alert";
 
+type FormProps = {
+    fetchWeather: (search: SearchType) => Promise<void>
+}
 
-export default function Form() {
+export default function Form({fetchWeather}: FormProps) {
     const [search, setSearch] = useState<SearchType>({
         city: '',
         country: '',
     })
     const [alert, setAlert] = useState('')
+
+
 
     const frecuentCountries = countries.filter( country => country.continent === 'SA' || country.continent === 'NA' || country.code === 'ES')
 
@@ -29,7 +34,7 @@ export default function Form() {
             return
         }
 
-
+        fetchWeather(search)
     }
 
   return (
